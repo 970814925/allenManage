@@ -18,6 +18,7 @@ export default {
         collapseMenu(state) {
             state.isCollapse = !state.isCollapse
         },
+        //tips:mutations接收两个参数 一个是state一个是传来的参数
         selectMenu(state, val) {
             if (val.name !== 'home') {
                 state.currentMenu = val

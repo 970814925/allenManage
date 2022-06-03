@@ -1,12 +1,14 @@
 <template>
   <header>
     <div class="l-content">
+    //tips:为button添加icon 
       <el-button
         @click="handleMenu"
         plain
         icon="el-icon-menu"
         size="mini"
       ></el-button>
+      
       <!-- <h3 style="color: #fff">首页</h3> -->
       <el-breadcrumb separator="/">
         <el-breadcrumb-item
@@ -36,11 +38,13 @@ export default {
   name: "CommonHeader",
   data() {
     return {
+    //tips:通过require引入
       userImg: require("../assets/images/user.png"),
     };
   },
   methods: {
     handleMenu() {
+    //tips:通过vuex修改数据 实现组件间通信
       this.$store.commit("collapseMenu");
     },
     logOut() {
@@ -60,6 +64,7 @@ export default {
 header {
   display: flex;
   height: 100%;
+  //tips:左右贴边 上下居中
   justify-content: space-between;
   align-items: center;
 }

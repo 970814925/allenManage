@@ -6,6 +6,7 @@
     <el-container>
         <el-header>
             <common-header />
+            <!-- <commonHeader/>  可以驼峰命名也可以中划线 -->
         </el-header>
         <common-tag />
         <el-main>
@@ -15,6 +16,7 @@
     </el-container>
 </template>
 <script>
+
 import CommonAside from '../src/components/CommonAside.vue'
 import CommonHeader from '../src/components/CommonHeader.vue'
 import CommonTag from '../src/components/CommonTag.vue'

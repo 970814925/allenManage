@@ -1,5 +1,7 @@
 <template>
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"  @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"  @open="handleOpen" 
+    @close="handleClose" :collapse="isCollapse">
+    //tips:通过判别式展示标题内容
         <h3>{{isCollapse ? '后台' : '通用后台管理系统'}}</h3>
         <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path" :key="item.path"> 
            <!-- noChildren -->
@@ -51,7 +53,8 @@
       },
       clickMenu(item) {
           this.$router.push({
-              name: item.name
+            //   name: item.name,      //跳转到对应name或者path的页面
+            path: item.path
           })
           this.$store.commit('selectMenu', item)
       }
@@ -64,6 +67,7 @@
             return this.asyncMenu.filter(item => item.children) //含有子菜单
         },
         isCollapse() {
+            //tips:获取vuex中的数据
           return this.$store.state.tab.isCollapse
         },
         asyncMenu() {
