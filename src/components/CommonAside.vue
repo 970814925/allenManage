@@ -1,11 +1,13 @@
 <template>
     <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"  @open="handleOpen" @close="handleClose" :collapse="isCollapse">
         <h3>{{isCollapse ? '后台' : '通用后台管理系统'}}</h3>
-        <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path" :key="item.path"> //渲染noChildren
+        <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path" :key="item.path"> 
+           <!-- noChildren -->
             <i :class="'el-icon-' + item.icon"></i>
             <span slot="title">{{item.label}}</span>
         </el-menu-item>
-        <el-submenu v-for="item in hasChildren" :index="item.label" :key="item.label">   //渲染hasChildren
+        <el-submenu v-for="item in hasChildren" :index="item.label" :key="item.label">  
+              <!-- hasChildren -->
             <template slot="title">
                 <i :class="'el-icon-' + item.icon"></i>
                 <span slot="title">{{item.label}}</span>
