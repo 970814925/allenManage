@@ -1,11 +1,11 @@
 <template>
     <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"  @open="handleOpen" @close="handleClose" :collapse="isCollapse">
         <h3>{{isCollapse ? '后台' : '通用后台管理系统'}}</h3>
-        <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path" :key="item.path">
+        <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path" :key="item.path"> //渲染noChildren
             <i :class="'el-icon-' + item.icon"></i>
             <span slot="title">{{item.label}}</span>
         </el-menu-item>
-        <el-submenu v-for="item in hasChildren" :index="item.label" :key="item.label">
+        <el-submenu v-for="item in hasChildren" :index="item.label" :key="item.label">   //渲染hasChildren
             <template slot="title">
                 <i :class="'el-icon-' + item.icon"></i>
                 <span slot="title">{{item.label}}</span>
@@ -56,10 +56,10 @@
     },
     computed: {
         noChildren() {
-            return this.asyncMenu.filter(item => !item.children)
+            return this.asyncMenu.filter(item => !item.children) //单纯一级菜单
         },
         hasChildren() {
-            return this.asyncMenu.filter(item => item.children)
+            return this.asyncMenu.filter(item => item.children) //含有子菜单
         },
         isCollapse() {
           return this.$store.state.tab.isCollapse
