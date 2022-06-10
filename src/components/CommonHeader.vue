@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="l-content">
-    //tips:为button添加icon 
+    <!-- //tips:为button添加icon  -->
       <el-button
         @click="handleMenu"
         plain

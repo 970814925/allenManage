@@ -1,6 +1,7 @@
 import Cookie from 'js-cookie'
 // import router from '../router'
 export default {
+    namespace:true,
     state: {
         isCollapse: false,
         tabsList: [

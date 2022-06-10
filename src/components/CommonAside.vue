@@ -1,7 +1,7 @@
 <template>
     <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"  @open="handleOpen" 
     @close="handleClose" :collapse="isCollapse">
-    //tips:通过判别式展示标题内容
+    <!-- //tips:通过判别式展示标题内容 -->
         <h3>{{isCollapse ? '后台' : '通用后台管理系统'}}</h3>
         <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path" :key="item.path"> 
            <!-- noChildren -->

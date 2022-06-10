@@ -1,5 +1,6 @@
 <template>
     <el-row class="home" :gutter="20">
+    <!-- //tips:gutter表示栅格间隔 越大两个el-row的间隔越大 -->
         <el-col :span="8" style="margin-top: 20px">
             <el-card shadow="hover">
                 <div class="user">
@@ -19,7 +20,6 @@
                     <el-table-column
                     v-for="(val, key) in tableLabel"
                     :key="key"
-                    :prop="key"
                     :label="val"
                     >
                     </el-table-column>
