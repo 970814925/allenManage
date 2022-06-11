@@ -1,6 +1,6 @@
 <template>
     <el-row class="home" :gutter="20">
-    <!-- //tips:gutter表示栅格间隔 越大两个el-row的间隔越大 -->
+    <!-- //tips:gutter表示栅格间隔 越大两个el-row的间隔越大 span表示列的宽度一共24份-->
         <el-col :span="8" style="margin-top: 20px">
             <el-card shadow="hover">
                 <div class="user">
