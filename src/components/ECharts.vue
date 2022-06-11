@@ -1,7 +1,9 @@
 <template>
+<!-- //tips:2.准备容器 -->
   <div ref="echart"></div>
 </template>
 <script>
+//tips:1.引入echarts
 import * as echarts from 'echarts'
 export default {
     props: {
@@ -24,24 +26,31 @@ export default {
             handler: function () {
                 this.initChart()
             },
+            //tips:首次触发watch
             deep: true
-        }
+        },
+        
     },
     methods: {
         initChart() {
             this.initChartData()
             if (this.echart) {
+                this.options.title={text:'haha'}
                 this.echart.setOption(this.options)
             } else {
+                //tips:3.初始化echarts对象
                 this.echart = echarts.init(this.$refs.echart)
+                //tips:5.将配置项交给echarts生成表格
                 this.echart.setOption(this.options)
             }
         },
         initChartData() {
             if (this.isAxisChart) {
+                //tips:4.准备图标的数据 若为折线图柱状图则有xAxis和series的数据 若为饼图则只有series的数据
                 this.axisOption.xAxis.data = this.chartData.xData
                 this.axisOption.series = this.chartData.series
             } else {
+                console.log(this.chartData.series)
                 this.normalOption.series = this.chartData.series
             }
         }

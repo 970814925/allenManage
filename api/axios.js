@@ -1,6 +1,6 @@
 import axios from 'axios'
 import config from '../config'
-
+//tips:开发环境和生产环境切换
 const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
 
 class HttpRequest {

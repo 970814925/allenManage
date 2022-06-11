@@ -36,16 +36,15 @@ import {
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "./assets/less/index.less";
-
+//tips:引入axios vuex router 
 import router from "../router";
 import store from "../store";
-import http from "axios";
+import axios from "axios";
 import "../api/mock.js";
 
 Vue.config.productionTip = false;
 Vue.use(Button);
 Vue.use(Radio);
-
 Vue.use(Container);
 Vue.use(Main);
 Vue.use(Header);
@@ -76,7 +75,8 @@ Vue.use(Dialog)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Pagination)
-Vue.prototype.$http = http;
+//tips:在全局中引入axios 这样在需要使用axios的时候 只需要this.$http即可 不需要额外写import axios from "axios";
+Vue.prototype.$http = axios;
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
 
