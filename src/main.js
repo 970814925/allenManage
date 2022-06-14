@@ -77,6 +77,7 @@ Vue.use(TableColumn)
 Vue.use(Pagination)
 //tips:在全局中引入axios 这样在需要使用axios的时候 只需要this.$http即可 不需要额外写import axios from "axios";
 Vue.prototype.$http = axios;
+//tips:引入MessageBox中的confirm 如果全局引入element则不需要再配置
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
 

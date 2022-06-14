@@ -52,10 +52,12 @@
         console.log(key, keyPath);
       },
       clickMenu(item) {
+        //tips:路由跳转的实现
           this.$router.push({
             //   name: item.name,      //跳转到对应name或者path的页面
             path: item.path
           })
+        //生成对应的面包屑
           this.$store.commit('selectMenu', item)
       }
     },

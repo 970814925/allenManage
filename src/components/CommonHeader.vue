@@ -8,8 +8,7 @@
         icon="el-icon-menu"
         size="mini"
       ></el-button>
-      
-      <!-- <h3 style="color: #fff">首页</h3> -->
+      <!-- //tips:separator是分隔符  面包屑现在 以/分割  ：首页/商品管理/用户管理-->
       <el-breadcrumb separator="/">
         <el-breadcrumb-item
           v-for="item in tags"
@@ -19,9 +18,11 @@
         >
       </el-breadcrumb>
     </div>
+    <!-- //tips:下拉栏组件组件 -->
     <div class="r-content">
       <el-dropdown trigger="click" size="mini">
         <span>
+            <!-- tips:点击图片实现下拉 -->
           <img class="user" :src="userImg" />
         </span>
         <el-dropdown-menu slot="dropdown">
@@ -33,6 +34,7 @@
   </header>
 </template>
 <script>
+//tips:引入mapState
 import { mapState } from "vuex";
 export default {
   name: "CommonHeader",
@@ -54,6 +56,7 @@ export default {
     },
   },
   computed: {
+    //tips:通过mapState获取面包屑的数据
     ...mapState({
       tags: (state) => state.tab.tabsList,
     }),
@@ -82,6 +85,7 @@ header {
     border-radius: 50%;
   }
 }
+//tips:通过 /deep/ 深度修改
 /deep/ .el-breadcrumb__item {
   .el-breadcrumb__inner {
     font-weight: normal;

@@ -10,6 +10,7 @@
                 :inline="true"
                 ref="form"
             ></common-form>
+            <!-- //tips:用slot为dialog 添加按钮 slot="footer" 是element自带的插槽-->
             <div slot="footer" class="dialog-footer">
                 <el-button @click="isShow = false">取消</el-button>
                 <el-button type="primary" @click="confirm">确定</el-button>
@@ -30,7 +31,7 @@
             :tableData="tableData"
             :tableLabel="tableLabel"
             :config="config"
-            @changePage="getList()"
+            @changePage2="getList()"
             @edit="editUser"
             @del="delUser"
         ></common-table>
@@ -163,7 +164,9 @@ export default {
                 sex: ''
             }
         },
+    //tips:slot-scope="scope"写法 实现数据回显
         editUser(row) {
+
             this.operateType = 'edit'
             this.isShow = true
             this.operateForm = row
@@ -186,14 +189,19 @@ export default {
                 })
             })
         },
-        getList(name = '') {
+
+        getList(a,name = '') {
+        //tips:created时执行getList name为空获取所有table数据 当name非空时 按照name返回数据  带有默认参数的方法，非默认参数需要放在默认参数前
+        console.log(this.config.page,'config')
             this.config.loading = true
             name ? (this.config.page = 1) : ''
             getUser({
                 page: this.config.page,
                 name
-            }).then(({ data: res }) => {
+            //tips:es6解构赋值  相当于{ data: res ,status:st} = response    此时response就是接口的返回值  res只是形参
+            }).then(({ data: res ,status:st}) => {
                 console.log(res, 'res')
+                 console.log(st, 'st')
                 this.tableData = res.list.map(item => {
                     item.sexLabel = item.sex === 0 ? "女" : "男"
                     return item
