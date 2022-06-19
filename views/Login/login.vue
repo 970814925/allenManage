@@ -1,5 +1,7 @@
 <template>
+<!-- tips:status-icon 表示是否根据rules的校验结果显示小图标 默认为true -->
     <el-form
+        
         :model="form"
         status-icon
         :rules="rules"
@@ -14,6 +16,7 @@
             prop="username"
             class="username"
         >
+        <!-- tips: autocomplete="off" 是HTML5的自带属性 让浏览器不自动记录输入内容-->
             <el-input
              type="input"
              v-model="form.username"
@@ -46,7 +49,6 @@ export default {
     data () {
         return {
             form: {
-
             },
             rules: {
                 username: [
@@ -87,6 +89,7 @@ export default {
 <style lang="less" scoped>
 .login-container {
     border-radius: 15px;
+    //tis:背景被裁剪到内边距框。
     background-clip: padding-box;
     margin: 180px auto;
     width: 350px;

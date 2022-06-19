@@ -27,6 +27,7 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>个人中心</el-dropdown-item>
+          <!-- tips:组件添加click事件 需要.native  否则会当作自定义事件 需要子组件this.$emit('click',123) 调用-->
           <el-dropdown-item @click.native="logOut">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>

@@ -81,6 +81,7 @@ Vue.prototype.$http = axios;
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
 
+//tips:路由守卫
 router.beforeEach((to, from, next) => {
   store.commit('getToken')
   const token = store.state.user.token

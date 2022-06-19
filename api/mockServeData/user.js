@@ -81,8 +81,9 @@ export default {
    * @param id
    * @return {*}
    */
-  deleteUser: config => {
-    const { id } = param2Obj(config.url)
+  //tips:修复了删除无效的问题
+   deleteUser: config => {
+       const id = JSON.parse(config.body).params.id
     if (!id) {
       return {
         code: -999,

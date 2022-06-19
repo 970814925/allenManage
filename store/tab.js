@@ -52,6 +52,7 @@ export default {
             state.menu = []
             Cookie.remove('menu')
         },
+        //tips:接收的参数为router实例this.$router   生成对应的路由
         addMenu(state, router) {
             if (!Cookie.get('menu')) {
                 return
@@ -61,9 +62,9 @@ export default {
             const menuArray = []
             menu.forEach(item => {
                 if (item.children) {
-                    item.children = item.children.map(item => {
-                        item.component = () => import(`../views/${item.url}`)
-                        return item
+                    item.children = item.children.map(item2 => {
+                        item2.component = () => import(`../views/${item2.url}`)
+                        return item2
                     })
                     menuArray.push(...item.children)
                 } else {
@@ -72,8 +73,9 @@ export default {
                 }
             });
             // 路由的动态添加
+            console.log(menuArray,'menuArray')
             menuArray.forEach(item => {
-                router.addRoute('Main', item)
+                router.addRoute('Main', item)                
             })
         }
     }
